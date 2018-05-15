@@ -16,7 +16,10 @@ class Flight
     {
         return $this->departure . ' - ' . $this->arrival;
     }
-
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="flight")
+     */
+    private $flights;
     /**
      * @var int
      * @ORM\Column(name="pilot", type="integer")
@@ -28,7 +31,7 @@ class Flight
     /**
      * @var int
      * @ORM\Column(name="plane", type="integer")
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlanetModel", inversedBy="planes")
+     * @ORM\ManyToOne(targetEntity="PlaneModel.php", inversedBy="planes")
      * @ORM\JoinColumn(nullable=false)
      */
     private $plane;
@@ -276,7 +279,7 @@ class Flight
      *
      * @return Flight
      */
-    public function setDeparture(\AppBundle\Entity\Site $departure)
+    public function setDeparture( $departure)
     {
         $this->departure = $departure;
 
@@ -328,4 +331,45 @@ class Flight
 
 
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->flights = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add flight
+     *
+     * @param \AppBundle\Entity\Reservation $flight
+     *
+     * @return Flight
+     */
+    public function addFlight(\AppBundle\Entity\Reservation $flight)
+    {
+        $this->flights[] = $flight;
+
+        return $this;
+    }
+
+    /**
+     * Remove flight
+     *
+     * @param \AppBundle\Entity\Reservation $flight
+     */
+    public function removeFlight(\AppBundle\Entity\Reservation $flight)
+    {
+        $this->flights->removeElement($flight);
+    }
+
+    /**
+     * Get flights
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFlights()
+    {
+        return $this->flights;
+    }
 }

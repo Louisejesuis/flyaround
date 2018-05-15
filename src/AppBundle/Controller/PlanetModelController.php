@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\PlanetModel;
+use AppBundle\Entity\PlaneModel;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -24,7 +24,7 @@ class PlanetModelController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $planetModels = $em->getRepository('AppBundle:PlanetModel')->findAll();
+        $planetModels = $em->getRepository('PlaneModel.php')->findAll();
 
         return $this->render('planetmodel/index.html.twig', array(
             'planetModels' => $planetModels,
@@ -39,7 +39,7 @@ class PlanetModelController extends Controller
      */
     public function newAction(Request $request)
     {
-        $planetModel = new Planetmodel();
+        $planetModel = new PlaneModel();
         $form = $this->createForm('AppBundle\Form\PlanetModelType', $planetModel);
         $form->handleRequest($request);
 
@@ -63,7 +63,7 @@ class PlanetModelController extends Controller
      * @Route("/{id}", name="planetmodel_show")
      * @Method("GET")
      */
-    public function showAction(PlanetModel $planetModel)
+    public function showAction(PlaneModel $planetModel)
     {
         $deleteForm = $this->createDeleteForm($planetModel);
 
@@ -79,7 +79,7 @@ class PlanetModelController extends Controller
      * @Route("/{id}/edit", name="planetmodel_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, PlanetModel $planetModel)
+    public function editAction(Request $request, PlaneModel $planetModel)
     {
         $deleteForm = $this->createDeleteForm($planetModel);
         $editForm = $this->createForm('AppBundle\Form\PlanetModelType', $planetModel);
@@ -104,7 +104,7 @@ class PlanetModelController extends Controller
      * @Route("/{id}", name="planetmodel_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, PlanetModel $planetModel)
+    public function deleteAction(Request $request, PlaneModel $planetModel)
     {
         $form = $this->createDeleteForm($planetModel);
         $form->handleRequest($request);
@@ -121,11 +121,11 @@ class PlanetModelController extends Controller
     /**
      * Creates a form to delete a planetModel entity.
      *
-     * @param PlanetModel $planetModel The planetModel entity
+     * @param PlaneModel $planetModel The planetModel entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(PlanetModel $planetModel)
+    private function createDeleteForm(PlaneModel $planetModel)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('planetmodel_delete', array('id' => $planetModel->getId())))

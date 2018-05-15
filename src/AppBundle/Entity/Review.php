@@ -196,4 +196,3 @@ class Review
         return $this->note;
     }
 }
-

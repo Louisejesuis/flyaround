@@ -6,6 +6,10 @@
     <table>
         <thead>
             <tr>
+                <th>Pilot</th>
+                <th>Plane</th>
+                <th>Arrival</th>
+                <th>Departure</th>
                 <th>Id</th>
                 <th>Nbfreeseats</th>
                 <th>Seatprice</th>
@@ -19,7 +23,11 @@
         <tbody>
         {% for flight in flights %}
             <tr>
-                <td><a href="{{ path('flight_show', { 'id': flight.id }) }}">{{ flight.id }}</a></td>
+                <td><a href="{{ path('flight_show', { 'id': flight.id }) }}">{{ flight.pilot }}</a></td>
+                <td>{{ flight.plane }}</td>
+                <td>{{ flight.arrival }}</td>
+                <td>{{ flight.departure }}</td>
+                <td>{{ flight.id }}</td>
                 <td>{{ flight.nbFreeSeats }}</td>
                 <td>{{ flight.seatPrice }}</td>
                 <td>{% if flight.takeOffTime %}{{ flight.takeOffTime|date('Y-m-d H:i:s') }}{% endif %}</td>

@@ -6,6 +6,8 @@
     <table>
         <thead>
             <tr>
+                <th>Flight</th>
+                <th>Passenger</th>
                 <th>Id</th>
                 <th>Nbreservedseats</th>
                 <th>Publicationdate</th>
@@ -16,7 +18,9 @@
         <tbody>
         {% for reservation in reservations %}
             <tr>
-                <td><a href="{{ path('reservation_show', { 'id': reservation.id }) }}">{{ reservation.id }}</a></td>
+                <td><a href="{{ path('reservation_show', { 'id': reservation.id }) }}">{{ reservation.flight }}</a></td>
+                <td>{{ reservation.passenger }}</td>
+                <td>{{ reservation.id }}</td>
                 <td>{{ reservation.nbReservedSeats }}</td>
                 <td>{% if reservation.publicationDate %}{{ reservation.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if reservation.wasDone %}Yes{% else %}No{% endif %}</td>

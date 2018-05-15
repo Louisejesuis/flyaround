@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PlanetModel
+ * PlaneModel
  *
- * @ORM\Table(name="planet_model")
+ * @ORM\Table(name="plane_model")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PlanetModelRepository")
  */
-class PlanetModel
+class PlaneModel
 {
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="plane")
@@ -92,7 +92,7 @@ class PlanetModel
      *
      * @param string $model
      *
-     * @return PlanetModel
+     * @return PlaneModel
      */
     public function setModel($model)
     {
@@ -116,7 +116,7 @@ class PlanetModel
      *
      * @param string $manufacturer
      *
-     * @return PlanetModel
+     * @return PlaneModel
      */
     public function setManufacturer($manufacturer)
     {
@@ -140,7 +140,7 @@ class PlanetModel
      *
      * @param integer $cruiseSpeed
      *
-     * @return PlanetModel
+     * @return PlaneModel
      */
     public function setCruiseSpeed($cruiseSpeed)
     {
@@ -164,7 +164,7 @@ class PlanetModel
      *
      * @param integer $planeNbSeats
      *
-     * @return PlanetModel
+     * @return PlaneModel
      */
     public function setPlaneNbSeats($planeNbSeats)
     {
@@ -188,7 +188,7 @@ class PlanetModel
      *
      * @param boolean $isAvailable
      *
-     * @return PlanetModel
+     * @return PlaneModel
      */
     public function setIsAvailable($isAvailable)
     {
@@ -205,5 +205,36 @@ class PlanetModel
     public function getIsAvailable()
     {
         return $this->isAvailable;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->planes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add plane
+     *
+     * @param \AppBundle\Entity\Flight $plane
+     *
+     * @return PlaneModel
+     */
+    public function addPlane(\AppBundle\Entity\Flight $plane)
+    {
+        $this->planes[] = $plane;
+
+        return $this;
+    }
+
+    /**
+     * Remove plane
+     *
+     * @param \AppBundle\Entity\Flight $plane
+     */
+    public function removePlane(\AppBundle\Entity\Flight $plane)
+    {
+        $this->planes->removeElement($plane);
     }
 }

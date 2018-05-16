@@ -9,21 +9,29 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class ReviewType extends AbstractType
 {
     /**
-     * {@inheritdoc}
+     * {@inheritdoc} Including all fields from Review entity.
      */
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('userRated')->add('reviewAuthor')->add('text')->add('publicationDate')->add('note');
-    }/**
- * {@inheritdoc}
- */
+        $builder
+            ->add('text')
+            ->add('publicationDate')
+            ->add('note')
+            ->add('userRated')
+            ->add('reviewAuthor');
+    }
+
+    /**
+     * {@inheritdoc} Targeting Review entity
+     */
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Review'
         ));
     }
-
     /**
      * {@inheritdoc}
      */

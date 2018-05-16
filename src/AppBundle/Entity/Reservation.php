@@ -21,17 +21,11 @@ class Reservation
     }
 
     /**
-     * @var int
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Flight", inversedBy="flights")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="flight", type="integer")
      */
     private $flight;
     /**
-     * @var int
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="passengers")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="passenger", type="integer")
      */
     private $passenger;
     /**

@@ -37,10 +37,7 @@ class Review
     private $userRated;
 
     /**
-     * @var int
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reviewAuthors")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="reviewAuthor", type="integer")
      */
     private $reviewAuthor;
 

@@ -21,33 +21,22 @@ class Flight
      */
     private $flights;
     /**
-     * @var int
-     * @ORM\Column(name="pilot", type="integer")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="pilots")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $pilot;
 
     /**
-     * @var int
-     * @ORM\Column(name="plane", type="integer")
-     * @ORM\ManyToOne(targetEntity="PlaneModel.php", inversedBy="planes")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="PlaneModel", inversedBy="planes")
      */
     private $plane;
     /**
      * @var int
-     * @ORM\Column(name="arrival", type="integer")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Site", inversedBy="arrivals")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $arrival;
 
     /**
-     * @var int
-     * @ORM\Column(name="departure", type="integer")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Site", inversedBy="departures")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $departure;
 

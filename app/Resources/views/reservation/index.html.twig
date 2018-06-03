@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Reservations list</h1>
+    <div class="container">
+    <h1 class="mx-auto my-3">Reservations list</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Flight</th>
@@ -41,7 +42,8 @@
 
     <ul>
         <li>
-            <a href="{{ path('reservation_new') }}">Create a new reservation</a>
+            <a href="{{ path('reservation_new') }}" class="btn btn-primary">Create a new reservation</a>
         </li>
     </ul>
+    </div>
 {% endblock %}

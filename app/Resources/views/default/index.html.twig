@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    <div class="container">
+        <div class="jumbotron-fluid">
+            <h1 class="display-4">Bienvenue sur Flyaround</h1>
+            <p class="lead">Vous devez vous connecter pour avoir accès aux sections du site</p>
+            <hr class="my-2">
+            <p class="lead">
+                <a class="btn btn-primary" href="{{ path('fos_user_security_login') }}">Se connecter</a>
+                <a class="btn btn-primary" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+            </p>
+        </div>
+    </div>
 {% endblock %}
-
-        {% block stylesheets %}
-        {% endblock %}

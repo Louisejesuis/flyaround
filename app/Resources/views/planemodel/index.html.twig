@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Planemodels list</h1>
+    <h1 class="mx-auto my-3">Planemodels list</h1>
 
-    <table>
+    <table class="table-hover tab-content table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Model</th>
-                <th>Manufacturer</th>
-                <th>Cruisespeed</th>
-                <th>Planenbseats</th>
-                <th>Isavailable</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>Cruisespeed</th>
+            <th>Planenbseats</th>
+            <th>Isavailable</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for planeModel in planeModels %}
@@ -25,14 +25,8 @@
                 <td>{{ planeModel.planeNbSeats }}</td>
                 <td>{% if planeModel.isAvailable %}Yes{% else %}No{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('planemodel_show', { 'id': planeModel.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('planemodel_edit', { 'id': planeModel.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('planemodel_show', { 'id': planeModel.id }) }}" class="btn btn-secondary">show</a>
+                    <a href="{{ path('planemodel_edit', { 'id': planeModel.id }) }}" class="btn btn-primary">edit</a>
                 </td>
             </tr>
         {% endfor %}
@@ -41,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('planemodel_new') }}">Create a new planeModel</a>
+            <a href="{{ path('planemodel_new') }}" class="btn btn-primary">Create a new planeModel</a>
         </li>
     </ul>
 {% endblock %}

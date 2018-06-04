@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Planemodel</h1>
+    <h1 class="mx-auto my-3">Planemodel</h1>
 
-    <table>
+    <table class="tab-content table-hover table ">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -34,14 +34,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('planemodel_index') }}">Back to the list</a>
+            <a href="{{ path('planemodel_index') }}" class="btn btn-primary">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('planemodel_edit', { 'id': planeModel.id }) }}">Edit</a>
+            <a href="{{ path('planemodel_edit', { 'id': planeModel.id }) }}" class="btn btn-primary">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
     </ul>

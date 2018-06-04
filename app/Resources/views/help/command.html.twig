@@ -1,0 +1,197 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <h1 class="mx-auto my-4">Help</h1>
+        </div>
+        <h2 class="my-3">Début d'un projet</h2>
+        <ol>
+            <li class="blockquote">
+                symfony new
+                <small>nom du projet</small>
+                3.4
+            </li>
+            <li class="blockquote">composer install</li>
+            <li class="blockquote">composer init</li>
+        </ol>
+
+        <h2 class="my-3">Entité</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Commande</th>
+                <th>Résultat</th>
+                <th>Commentaire</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td scope="row">php bin/console doctrine:generate:entity</td>
+                <td>Genère une entité</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">php bin/console doctrine:schema:update --force</td>
+                <td>Met à jour la bdd</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">php bin/console doctrine:generate:crud</td>
+                <td>Genère le crud</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">php bin/console doctrine:generate:crud --overwrite</td>
+                <td>met à jour le crud</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">php bin/console doctrine:generate:entities AppBundle</td>
+                <td>met à jour les getters et setters</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row"> php bin/console generate:controller</td>
+                <td>Genère le controller</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <h2 class="my-3">Symfony</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Commande</th>
+                <th>Résultat</th>
+                <th>Commentaire</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td scope="row">php bin/console debug:router</td>
+                <td>Affiche toutes les routes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">php bin/console doctrine:database:create</td>
+                <td>Créer la bdd</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <h2 class="my-3">Webpack</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Commande</th>
+                <th>Résultat</th>
+                <th>Commentaire</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td scope="row">npm i @symfony/webpack-encore</td>
+                <td>Installe le module webpack encore</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">npm i webpack-notifier</td>
+                <td>Installe le module webpack notifier</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">npm install</td>
+                <td>Installe npm</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">npm init</td>
+                <td>Genère package.json</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">./node_modules/.bin/encore dev</td>
+                <td>Recompile</td>
+                <td>npm run dev</td>
+            </tr>
+            <tr>
+                <td scope="row">npm install sass-loader node-sass --save-dev</td>
+                <td>Installe le sass loader</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">npm i jquery</td>
+                <td>Installe jquery</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">npm install bootstrap --save</td>
+                <td>Installe bootstrap</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 class="my-3">Php Unit</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Commande</th>
+                <th>Résultat</th>
+                <th>Commentaire</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td scope="row">composer require phpunit/phpunit</td>
+                <td>Installe phpunit</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">composer dump-autoload</td>
+                <td>Réécrit l'autoload</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">php vendor/bin/phpunit --colors=auto tests</td>
+                <td>Lance un test</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <h2 class="my-3">Fixture</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Commande</th>
+                <th>Résultat</th>
+                <th>Commentaire</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td scope="row">composer require --dev doctrine/doctrine-fixtures-bundle</td>
+                <td>Installe les fixtures</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">php bin/console doctrine:fixtures:load</td>
+                <td>Lance les fixtures</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td scope="row">composer require --dev fzaninotto/faker</td>
+                <td>Installe faker</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
